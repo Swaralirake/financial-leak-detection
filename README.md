@@ -1,89 +1,106 @@
 # Micro-Spending-leakage
 
-# 💸 Financial Leak Detector API
-An AI-powered backend system that detects hidden financial leaks such as unused subscriptions, micro-spends, anomalies, and predicts annual loss.
-## 🚀 Features
+# Financial Leak Detector
 
-- 🔍 Subscription Detection
-- 💰 Micro-Spend Detection
-- 📊 Expense Classification
-- 🚨 Anomaly Detection
-- 📈 Financial Leak Score Calculation
-- 📅 Annual Loss Prediction
-- 🔐 Authentication System
-- 📄 Interactive API Documentation (Swagger UI)
+Most people lose money every month without realizing it.
 
-- ## 🛠 Tech Stack
+Unused subscriptions.  
+Small daily spends that quietly add up.  
+Random transactions that don’t look normal.
+
+This project is a backend system built with FastAPI that analyzes transaction data and tries to detect those “financial leaks”.
+
+It’s structured like a production-style API, with modular ML logic separated from route handling, so it can scale into a full product later.
+
+---
+
+## What It Does
+
+- Detects recurring subscriptions
+- Identifies micro-spending patterns
+- Classifies expenses
+- Flags unusual or abnormal transactions
+- Calculates a Financial Leak Score
+- Predicts potential annual financial loss
+
+The current ML logic is rule-based, but the architecture is designed so real machine learning models can be plugged in easily.
+
+---
+
+## Tech Stack
 
 - Python
 - FastAPI
 - Uvicorn
 - Pydantic
-- Custom ML Logic Engine
+- Modular ML engine design
 
-- ## 📂 Project Structure
+---
+
+## Project Structure
 
 financial-leak-backend/
-│
-├── app/
-│   ├── main.py
-│   ├── analytics.py
-│   ├── transactions.py
-│   ├── subscriptions.py
-│   ├── auth.py
-│   ├── alerts.py
-│
-├── ml/
-│   └── engine.py
-│
-├── requirements.txt
-└── README.md
 
-## ⚙️ Installation
+- app/ → API routes and request handling  
+  - main.py  
+  - analytics.py  
+  - transactions.py  
+  - subscriptions.py  
+  - auth.py  
+  - alerts.py  
 
-1. Clone the repository:
-   git clone https://github.com/yourusername/financial-leak-backend.git
+- ml/ → Financial analysis engine  
+  - engine.py  
 
-2. Navigate into the folder:
-   cd financial-leak-backend
+- requirements.txt  
+- README.md  
 
-3. Create virtual environment:
-   python -m venv venv
+The `ml/engine.py` file contains the detection and scoring logic.  
+The `app/` folder handles API endpoints and connects everything together.
 
-4. Activate virtual environment:
-   venv\Scripts\activate   (Windows)
+---
 
-5. Install dependencies:
-   pip install -r requirements.txt
+## How to Run Locally
 
-6. Run the server:
-   uvicorn app.main:app --reload
+1. Clone the repository  
+2. Create a virtual environment  
+3. Install dependencies  
 
-   ## 📘 API Documentation
+pip install -r requirements.txt  
 
-Once the server is running, access interactive API docs at:
+4. Start the server  
 
-http://127.0.0.1:8000/docs
+uvicorn app.main:app --reload  
 
-## 🧠 How It Works
+Then open:
 
-The system analyzes transaction data to:
+http://127.0.0.1:8000/docs  
 
-- Identify recurring subscription charges
-- Detect micro-spending patterns
-- Classify expenses into categories
-- Flag unusual or anomalous transactions
-- Calculate a Financial Leak Score
-- Predict potential annual financial loss
+to test the API using Swagger UI.
 
-- ## 📌 Future Improvements
+---
 
-- Real ML model integration
-- Bank API integration
-- Dashboard frontend
-- Real-time alerts
-- Cloud deployment
+## Why I Built This
 
-- ## 🌐 Live Demo
+This project is part of a larger idea to build tools that help people understand where their money actually goes.
 
-Backend API: (http://127.0.0.1:8000/docs)
+It also helped me practice:
+- Backend architecture
+- API design
+- Structuring ML-driven systems
+- Debugging real-world import and dependency issues
+- Organizing a scalable project layout
+
+---
+
+## Next Steps
+
+- Connect a frontend dashboard
+- Improve scoring logic
+- Integrate real ML models
+- Deploy to the cloud
+- Add real transaction datasets
+
+---
+
+Still building. Still improving.
